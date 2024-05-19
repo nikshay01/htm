@@ -15,7 +15,7 @@ body {
 }
 @media only screen and(min-width: 600px){
 	body{
-		background-image: url('bg0.png');
+		background-color: red;
 	}
 }
 form{
