@@ -140,6 +140,10 @@ box-sizing: border-box;
 
 
 <script>
+	document.addEventListener('mousedown', function(event) {
+    event.preventDefault();
+});
+
 let display = document.getElementById('display');
 let ac = document.getElementById('ac');
 let del = document.getElementById('del');
