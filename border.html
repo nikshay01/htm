@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: monospace;
+    }
+    .container{
+        position: relative;
+        height: 220px;
+        width: 230px;
+        /* border: 1px rgb(255, 0, 0) solid; */
+        padding: 20px;
+        background-color: rgb(24, 24, 24);
+        border-radius: 10px;
+
+    }
+    @property --angle{
+        syntax: "<angle>";
+        initial-value: 20deg;
+        inherits: false;
+    }
+    @property --size{
+        syntax: "<percentage>";
+        initial-value: 9%;
+        inherits: false;
+    }
+    .container::after,.container::before,.container::before{
+        border-radius: 10px;
+        padding: 2px;
+        position: absolute;
+        content: '';
+        background-image: conic-gradient(from var(--angle), transparent var(--size),white,blue,red,green);
+        height: 100%;
+        width: 100%;
+        inset: 0;
+        z-index: -1;
+        margin-top: -2px;
+        margin-left: -2px;
+        animation: spin2 5s infinite linear;
+        animation: spin 5s infinite  linear;
+    }
+    .container::before{
+        filter: blur(70px);
+    }
+    @keyframes spin {
+        from{
+            --angle:80deg;
+            /* --size:0%; */
+
+        }
+        to{
+            /* --size:50%; */
+            --angle:360deg;
+        }
+
+    }
+    @keyframes spin2 {
+        from{
+            --size:80%;
+        }
+        to{
+            --size:20%;
+        }
+        
+    }
+    h1{
+        text-align: center;
+        text-transform: uppercase;
+    }
+    p{
+        text-align: center;
+        text-transform: capitalize;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>
+            heading</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, accusamus nisi. Minima quae voluptate, pariatur et, excepturi possimus vel non distinctio magnam perspiciatis id culpa. Quae aperiam aspernatur sed excepturi.
+        </p>
+    </div>
+</body>
+</html>
